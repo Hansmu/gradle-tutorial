@@ -21,3 +21,26 @@ This generates several files.
 To check what tasks there are, you can use `gradle tasks`.
 
 To run a specific task, you can do `gradle <task name>`.
+
+Gradle on its own has no knowledge of any language. 
+It is through plugins that it knows what to do with different languages.
+
+## Plugins
+
+When you want to add a plugin, then there are two ways:
+1. Recommended - the `plugin` block.
+2. The old way - `apply plugin: '...'`. This can be placed anywhere, preferably at the top of the file.
+
+To then configure the plugin, you'd add a block with the block name.
+
+```build.gradle
+plugins {
+    id 'bananaPhone'
+}
+
+bananaPhone {
+    ...config here
+}
+```
+
+Custom plugins might have different ways of configuring them.
