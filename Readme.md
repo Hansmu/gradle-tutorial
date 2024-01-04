@@ -44,3 +44,36 @@ bananaPhone {
 ```
 
 Custom plugins might have different ways of configuring them.
+
+### Repository
+
+The `repositories` block is used to tell Gradle where to look for dependencies and plugins.
+
+The default repositories can be defined with a method. Ex `mavenCentral()`.
+
+When you're defining a custom one, then you have to define it a bit differently.
+```
+repositories {
+    customRepo {
+        url 'https://banana-hpone.com/bob'
+        ...otherConfig
+    }
+}
+```
+
+The order matters here. It tries to resolve dependencies based on the order that the repositories are defined in.
+
+### Dependencies
+
+The `dependencies` block is used to tell Greadle what dependencies are needed.
+
+You can define them by different types based on what their purposes are:
+* `implementation`: Dependencies required to compile your production code, but are not exposed to consumers of your library.
+* `testImplementation`: Dependencies used only for compiling and running tests.
+* `api`: Dependencies that are part of your API and required for both compiling the production code and for consumers of the library.
+* `compileOnly`: Dependencies only needed for compiling, not at runtime.
+
+The dependencies themselves are defined by `<groupId>:<artifactId>:<version>`.
+For ex `implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'`
+
+Gradle caches the dependencies in your user folder.
