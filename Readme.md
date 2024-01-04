@@ -77,3 +77,16 @@ The dependencies themselves are defined by `<groupId>:<artifactId>:<version>`.
 For ex `implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'`
 
 Gradle caches the dependencies in your user folder.
+
+### Build phases
+
+Gradle has 3 distinct build phases.
+
+* Initialization
+  * Gradle figures out if it's multi-module or not.
+* Configuration
+  * Builds a task graph to make sure there is no cyclic dependency between tasks.
+  * Executes everything on the top level of the task.
+    * `doFirst`, `doLast` are run only in execution.
+* Execution
+  * Executes the tasks.

@@ -1,3 +1,15 @@
+println 'Starting the Gradle file'
+
 task helloWorld {
-    print 'Hello world'
+    println 'Hello world'
+
+    doFirst() {
+        println 'Ran in the doFirst'
+    }
+
+    doLast() {
+        println 'Ran in the doLast'
+    }
 }
+
+println 'Ending the Gradle file'
